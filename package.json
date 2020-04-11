@@ -1,0 +1,25 @@
+{
+  "name": "simple_node_crud",
+  "version": "1.0.0",
+  "description": "Simple Crud created with node to learn about it's specifications",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WillRock19/simple-node-crud.git"
+  },
+  "keywords": [
+    "node",
+    "crud",
+    "jscript"
+  ],
+  "author": "William Porto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/WillRock19/simple-node-crud/issues"
+  },
+  "homepage": "https://github.com/WillRock19/simple-node-crud#readme"
+}
