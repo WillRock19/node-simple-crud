@@ -4,6 +4,7 @@
   "description": "Simple Crud created with node to learn about it's specifications",
   "main": "server.js",
   "scripts": {
+		"lint": "./node_modules/.bin/eslint src/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
