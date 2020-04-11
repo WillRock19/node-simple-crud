@@ -4,9 +4,10 @@
   "description": "Simple Crud created with node to learn about it's specifications",
   "main": "server.js",
   "scripts": {
-		"lint": "./node_modules/.bin/eslint src/*.js",
+    "lint": "./node_modules/.bin/eslint src/*.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+		"start": "node server.js",
+		"prepush": "npm run lint"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   },
   "homepage": "https://github.com/WillRock19/simple-node-crud#readme",
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "eslint": "^6.8.0",
+    "husky": "^4.2.5"
   }
 }
