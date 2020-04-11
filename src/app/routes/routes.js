@@ -10,4 +10,22 @@ module.exports = (app) => {
 				</BODY>
 		<HTML>`);
 	});
+
+	app.get("/books", (request, response) => {
+		response.marko(
+			require("../views/books"),
+			{
+				books: [
+					{
+						id: 1,
+						title: "Fundamentos do Node"
+					},
+					{
+						id: 2,
+						title: "Fundamentos de Scala"
+					}
+				]
+			}
+		);
+	});
 };
