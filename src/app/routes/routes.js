@@ -16,9 +16,8 @@ module.exports = (app) => {
 
 	app.get("/books", (request, response) => {
 		const bookDao = new BookDao(db);
-
 		bookDao
-			.getBooks()
+			.getAll()
 			.then((books) =>
 				response.marko(require("../views/books"), {
 					books: books,
@@ -31,7 +30,11 @@ module.exports = (app) => {
 		response.marko(require("../views/books/form/book-form.marko"));
 	});
 
-	app.post("/books", (request, response) => {
-		console.log(request.body);
+	app.post("/books/create", (request, response) => {
+		const bookDao = new BookDao(db);
+		bookDao
+			.add(request.body)
+			.then(response.redirect("/books"))
+			.catch((error) => console.log(error));
 	});
 };
