@@ -5,14 +5,18 @@
 	<body>
 		<h1>My books</h1>
 		<table>
-			<tr>
-				<td>Id</td>
-				<td>Title</td>
-			</tr>
-			<tr for(book in data.books)>
-				<td>${book.id}</td>
-				<td>${book.title}</td>
-			</tr>
+			<thead>
+				<th>Id</th>
+				<th>Title</th>
+			</thead>
+			<tbody style="display: flex; flex-direction: column">
+				<for|book, index| of=data.books>
+					<tr>
+						<td>${book.id}</td>
+						<td>${book.title}</td>
+					</tr>
+				</for>
+			</tbody>
 		</table>
 	</body>
 </html>

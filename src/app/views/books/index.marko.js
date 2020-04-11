@@ -15,11 +15,11 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><meta charset=\"utf-8\"></head><body><h1>My books</h1><table><tr><td>Id</td><td>Title</td></tr>");
+  out.w("<html><head><meta charset=\"utf-8\"></head><body><h1>My books</h1><table><thead><th>Id</th><th>Title</th></thead><tbody style=\"display: flex; flex-direction: column\">");
 
   var $for$0 = 0;
 
-  marko_forOf(data.books, function(book) {
+  marko_forOf(data.books, function(book, index) {
     var $keyScope$0 = "[" + (($for$0++) + "]");
 
     out.w("<tr><td>" +
@@ -29,11 +29,11 @@ function render(input, out, __component, component, state) {
       "</td></tr>");
   });
 
-  out.w("</table>");
+  out.w("</tbody></table>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "12");
+  await_reorderer_tag({}, out, __component, "13");
 
   _preferred_script_location_tag({}, out);
 

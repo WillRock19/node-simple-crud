@@ -15,18 +15,15 @@ module.exports = (app) => {
 	});
 
 	app.get("/books", (request, response) => {
-
 		const bookDao = new BookDao(db);
-		bookDao.getBooks((error, result) => {
 
-			console.log(result);
-
-			response.marko(
-				require("../views/books"),
-				{
-					books: result
-				}
-			);
-		});
+		bookDao
+			.getBooks()
+			.then((books) =>
+				response.marko(require("../views/books"), {
+					books: books,
+				})
+			)
+			.catch((error) => console.log(error));
 	});
 };
