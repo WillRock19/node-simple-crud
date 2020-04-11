@@ -1,7 +1,6 @@
-const http = require('http');
-const server = http.createServer((request, response) =>
-{
-    response.end(`
+const http = require("http");
+const server = http.createServer((request, response) => {
+	response.end(`
         <HTML>
             <HEAD>
                 <meta charset="utf-8">
@@ -9,7 +8,7 @@ const server = http.createServer((request, response) =>
             <BODY>
                 <H1>Subiu!</H1>
             </BODY>
-        <HTML>`)
+        <HTML>`);
 });
 
-server.listen('3000');
+server.listen("3000");
