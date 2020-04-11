@@ -1,3 +1,6 @@
+const BookDao = require("../dao/book-dao");
+const db = require("../../config/database");
+
 module.exports = (app) => {
 	app.get("/", (request, response) => {
 		response.send(`
@@ -12,20 +15,18 @@ module.exports = (app) => {
 	});
 
 	app.get("/books", (request, response) => {
-		response.marko(
-			require("../views/books"),
-			{
-				books: [
-					{
-						id: 1,
-						title: "Fundamentos do Node"
-					},
-					{
-						id: 2,
-						title: "Fundamentos de Scala"
-					}
-				]
-			}
-		);
+
+		const bookDao = new BookDao(db);
+		bookDao.getBooks((error, result) => {
+
+			console.log(result);
+
+			response.marko(
+				require("../views/books"),
+				{
+					books: result
+				}
+			);
+		});
 	});
 };
