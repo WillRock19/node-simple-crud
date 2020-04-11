@@ -1,4 +1,4 @@
-const http = require("http")
+const http = require("http");
 const server = http.createServer((request, response) => {
 	response.end(`
         <HTML>
@@ -11,4 +11,4 @@ const server = http.createServer((request, response) => {
         <HTML>`);
 });
 
-server.listen("3000")
+server.listen("3000");
