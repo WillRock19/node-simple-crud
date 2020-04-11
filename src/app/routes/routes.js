@@ -37,4 +37,14 @@ module.exports = (app) => {
 			.then(response.redirect("/books"))
 			.catch((error) => console.log(error));
 	});
+
+	app.delete("/books/:id", (request, response) => {
+		const id = request.params.id;
+		const bookDao = new BookDao(db);
+
+		bookDao
+			.remove(id)
+			.then(() => response.send(200).end())
+			.catch((error) => console.log(error));
+	});
 };

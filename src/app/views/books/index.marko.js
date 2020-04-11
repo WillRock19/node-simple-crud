@@ -15,7 +15,7 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
 function render(input, out, __component, component, state) {
   var data = input;
 
-  out.w("<html><head><meta charset=\"utf-8\"></head><body><h1>My books</h1><table><thead><th>Id</th><th>Title</th></thead><tbody style=\"display: flex; flex-direction: column\">");
+  out.w("<html><head><meta charset=\"utf-8\"></head><body><h1>My books</h1><table><thead><th>Id</th><th>Title</th><th></th><th></th></thead><tbody style=\"display: flex; flex-direction: column\">");
 
   var $for$0 = 0;
 
@@ -26,14 +26,14 @@ function render(input, out, __component, component, state) {
       marko_escapeXml(book.id) +
       "</td><td>" +
       marko_escapeXml(book.title) +
-      "</td></tr>");
+      "</td><td><a href=\"#\">Editar</a></td><td><a href=\"#\">Remover</a></td></tr>");
   });
 
-  out.w("</tbody></table>");
+  out.w("</tbody></table><script src=\"static/js/books/remove-books.js\"></script>");
 
   init_components_tag({}, out);
 
-  await_reorderer_tag({}, out, __component, "13");
+  await_reorderer_tag({}, out, __component, "19");
 
   _preferred_script_location_tag({}, out);
 

@@ -8,15 +8,20 @@
 			<thead>
 				<th>Id</th>
 				<th>Title</th>
+				<th></th>
+				<th></th>
 			</thead>
 			<tbody style="display: flex; flex-direction: column">
 				<for|book, index| of=data.books>
 					<tr>
 						<td>${book.id}</td>
 						<td>${book.title}</td>
+						<td><a href="#">Editar</a></td>
+						<td><a href="#">Remover</a></td>
 					</tr>
 				</for>
 			</tbody>
 		</table>
+		<script src="static/js/books/remove-books.js"></script>
 	</body>
 </html>
