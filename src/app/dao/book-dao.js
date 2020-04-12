@@ -30,7 +30,6 @@ class BookDao {
 						return reject(
 							"An error occured while trying to add a book to the database!"
 						);
-					console.log("Livro obtido: ", result);
 					return resolve(result);
 				}
 			);
@@ -38,10 +37,6 @@ class BookDao {
 	}
 
 	update(book) {
-
-		console.log(book);
-		console.log(book.description);
-
 		return new Promise((resolve, reject) => {
 			this._db.run(
 				`UPDATE books

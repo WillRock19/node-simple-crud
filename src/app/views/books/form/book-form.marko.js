@@ -5,6 +5,8 @@ var marko_template = module.exports = require("marko/src/html").t(__filename),
     marko_componentType = "/simple_node_crud$1.0.0/src/app/views/books/form/book-form.marko",
     marko_renderer = require("marko/src/runtime/components/renderer"),
     marko_attr = require("marko/src/runtime/html/helpers/attr"),
+    helpers_escape_xml = require("marko/src/runtime/html/helpers/escape-xml"),
+    marko_escapeXml = helpers_escape_xml.x,
     marko_loadTag = require("marko/src/runtime/helpers/load-tag"),
     init_components_tag = marko_loadTag(require("marko/src/core-tags/components/init-components-tag")),
     await_reorderer_tag = marko_loadTag(require("marko/src/core-tags/core/await/reorderer-renderer")),
@@ -27,9 +29,9 @@ function render(input, out, __component, component, state) {
     marko_attr("value", "" + data.book.title) +
     "></div><div><label for=\"price\">Price:</label><input type=\"text\" id=\"price\" name=\"price\" placeholder=\"150.25\"" +
     marko_attr("value", "" + data.book.price) +
-    "></div><div><label for=\"description\">Description:</label><textarea cols=\"20\" rows=\"10\" id=\"description\" name=\"description\" placeholder=\"Descrive the book's subject\"" +
-    marko_attr("value", "" + data.book.description) +
-    ">\n\t\t\t\t\t</textarea></div><input type=\"submit\" value=\"Save\"></form>");
+    "></div><div><label for=\"description\">Description:</label><textarea cols=\"20\" rows=\"10\" id=\"description\" name=\"description\" placeholder=\"Descrive the book's subject\">\n\t\t\t\t\t\t\t" +
+    marko_escapeXml(data.book.description) +
+    "\n\t\t\t\t\t</textarea></div><input type=\"submit\" value=\"Save\"></form>");
 
   init_components_tag({}, out);
 

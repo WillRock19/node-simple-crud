@@ -34,10 +34,12 @@ module.exports = (app) => {
 		const bookDao = new BookDao(db);
 		bookDao
 			.getById(request.params.id)
-			.then((book) =>
+			.then((book) =>{
+				console.log(book);
 				response.marko(require("../views/books/form/book-form.marko"), {
 					book: book,
-				})
+				});
+			}
 			)
 			.catch((error) => console.log(error));
 	});

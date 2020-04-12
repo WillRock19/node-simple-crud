@@ -18,8 +18,7 @@ app.use(
 app.use(
 	methodOverride(function (request) {
 		if (request.body && typeof request.body === "object" && "_method" in request.body) {
-			// look in urlencoded POST bodies and delete it
-			var method = request.body._method;
+			const method = request.body._method;
 			delete request.body._method;
 			return method;
 		}
