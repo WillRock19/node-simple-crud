@@ -26,14 +26,34 @@ module.exports = (app) => {
 			.catch((error) => console.log(error));
 	});
 
-	app.get("/books/create", (request, response) => {
-		response.marko(require("../views/books/form/book-form.marko"));
+	app.get("/books/form", (request, response) => {
+		response.marko(require("../views/books/form/book-form.marko"), {book: {}});
 	});
 
-	app.post("/books/create", (request, response) => {
+	app.get("/books/form/:id", (request, response) => {
+		const bookDao = new BookDao(db);
+		bookDao
+			.getById(request.params.id)
+			.then((book) =>
+				response.marko(require("../views/books/form/book-form.marko"), {
+					book: book,
+				})
+			)
+			.catch((error) => console.log(error));
+	});
+
+	app.post("/books/form", (request, response) => {
 		const bookDao = new BookDao(db);
 		bookDao
 			.add(request.body)
+			.then(response.redirect("/books"))
+			.catch((error) => console.log(error));
+	});
+
+	app.put("/books/form", (request, response) => {
+		const bookDao = new BookDao(db);
+		bookDao
+			.update(request.body)
 			.then(response.redirect("/books"))
 			.catch((error) => console.log(error));
 	});

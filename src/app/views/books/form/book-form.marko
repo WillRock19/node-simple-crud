@@ -1,20 +1,30 @@
 <html>
 	<body>
 		<h1>Book's register</h1>
-		<form action="/books/create" method="post">
+		<form action="/books/form" method="post">
 
-			<input type="hidden" id="id" name="id" />
+			<if(data.book.id)>
+				<input type="hidden" id="id" name="id" value=`${data.book.id}`/>
+				<input type="hidden" name="_method" value=`PUT`/>
+			</if>
 			<div>
 					<label for="title">Title:</label>
-					<input type="text" id="title" name="title" placeholder="book's title" />
+					<input type="text" id="title" name="title" placeholder="book's title" value=`${data.book.title}` />
 			</div>
 			<div>
 					<label for="price">Price:</label>
-					<input type="text" id="price" name="price" placeholder="150.25" />
+					<input type="text" id="price" name="price" placeholder="150.25" value=`${data.book.price}` />
 			</div>
 			<div>
 					<label for="description">Description:</label>
-					<textarea cols="20" rows="10"  id="description" name="description" placeholder="Descrive the book's subject"></textarea>
+					<textarea
+						cols="20"
+						rows="10"
+						id="description"
+						name="description"
+						placeholder="Descrive the book's subject"
+						value=`${data.book.description}`>
+					</textarea>
 			</div>
 			<input type="submit" value="Save" />
 		</form>

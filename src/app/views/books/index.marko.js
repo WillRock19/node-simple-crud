@@ -31,7 +31,9 @@ function render(input, out, __component, component, state) {
       marko_escapeXml(book.title) +
       "</td><td>" +
       marko_escapeXml(book.price) +
-      "</td><td><a href=\"#\">Edit</a></td><td><a href=\"#\"" +
+      "</td><td><a" +
+      marko_attr("href", "/books/form/" + book.id) +
+      ">Edit</a></td><td><a href=\"#\"" +
       marko_attr("data-ref", "" + book.id) +
       " data-type=\"remove\">Remove</a></td></tr>");
   });
