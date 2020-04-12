@@ -39,11 +39,9 @@ module.exports = (app) => {
 	});
 
 	app.delete("/books/:id", (request, response) => {
-		const id = request.params.id;
 		const bookDao = new BookDao(db);
-
 		bookDao
-			.remove(id)
+			.remove(request.params.id)
 			.then(() => response.send(200).end())
 			.catch((error) => console.log(error));
 	});

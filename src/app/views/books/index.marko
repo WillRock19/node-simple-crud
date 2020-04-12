@@ -4,24 +4,26 @@
 	</head>
 	<body>
 		<h1>My books</h1>
-		<table>
+		<table id="books">
 			<thead>
 				<th>Id</th>
 				<th>Title</th>
+				<th>Price</th>
 				<th></th>
 				<th></th>
 			</thead>
 			<tbody style="display: flex; flex-direction: column">
 				<for|book, index| of=data.books>
-					<tr>
+					<tr id=`book_${book.id}`>
 						<td>${book.id}</td>
 						<td>${book.title}</td>
-						<td><a href="#">Editar</a></td>
-						<td><a href="#">Remover</a></td>
+						<td>${book.price}</td>
+						<td><a href="#">Edit</a></td>
+						<td><a href="#" data-ref=`${book.id}` data-type="remove">Remove</a></td>
 					</tr>
 				</for>
 			</tbody>
 		</table>
-		<script src="static/js/books/remove-books.js"></script>
+		<script src="static/js/books/remove-book.js"></script>
 	</body>
 </html>
